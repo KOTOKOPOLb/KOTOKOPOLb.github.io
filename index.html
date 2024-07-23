@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-	<title>Animated Background</title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOTOKOPOLb site :3</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 	<style>
 		body, html {
 			background: #090d00;
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: 'Lato', sans-serif;
 		}
 
 		/* BACKGROUND */
@@ -25,13 +33,118 @@
 			width: 100%;
 			height: 100%;
 		}
+
+		body.black-theme {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background: transparent;
+			position: relative;
+			min-height: 100vh;
+			overflow: hidden;
+			letter-spacing: 0.5px;
+			font-weight: 400;
+		}
+
+		body.black-theme .card {
+			/* идеал 350x530 */
+			min-width: 350px;
+			width: 20vw;
+			min-height: 530px;
+			height: calc(49vh);
+			box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+			border-radius: 10px;
+			background: rgba(255, 255, 255, 0.05);
+			backdrop-filter: blur(10px);
+			overflow: hidden;
+		}
+
+		body.black-theme .card__top {
+			/* идеал 155 */
+			min-height: 155px;
+			height: 14vh;
+			position: relative;
+		}
+
+		body.black-theme .card__top img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		body.black-theme .profile__photo {
+			/* идеал 130x130 */
+			min-width: 130px;
+			width: auto;
+			min-height: 130px;
+			height: 12vh;
+			aspect-ratio: 1 / 1;
+			position: absolute;
+			bottom: -60px;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		body.black-theme .profile__photo img {
+			width: 100%;
+			border-radius: 50%;
+			height: 100%;
+			object-fit: cover;
+			border: 7px solid rgba(0, 0, 0, 0.35);
+		}
+
+		body.black-theme .card__content {
+			text-align: center;
+			color: #fff;
+			padding: 5em 2.5em;
+		}
+
+		body.black-theme .card__content h2 {
+			font-weight: 700;
+			font-size: 24px;
+		}
+
+		body.black-theme .card__content h3 {
+			font-weight: 400;
+			margin: 5px 0 30px;
+			font-size: 16px;
+		}
+
+		body.black-theme .card__content p {
+			text-align: left;
+		}
+
+		body.black-theme .card__content p span {
+			margin-right: 10px;
+		}
+
+		body.black-theme .card__content p a {
+			text-decoration: none;
+			color: #fff;
+		}
+
 	</style>
 </head>
-<body>
+<body class="black-theme">
 	<div id="bg">
 		<canvas></canvas>
 		<canvas></canvas>
 		<canvas></canvas>
+	</div>
+	<div class="card">
+		<div class="card__top">
+			<img src="https://cdn.pixabay.com/photo/2016/10/26/23/24/colors-1772977_1280.jpg" alt="Sky">
+			<div class="profile__photo">
+				<img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Profile Photo">
+			</div>
+		</div>
+		<div class="card__content">
+			<h2>KOTOKOPOLb</h2>
+			<h3>Web Designer</h3>
+			<p><span><i class="fas fa-map-marker-alt"></i></span>Russia, Tomsk</p>
+			<p><span><i class="far fa-building"></i></span>CKG Team</p>
+			<p><span><i class="far fa-envelope"></i></span><a href="mailto:test@mail.com">test@mail.com</a></p>
+		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
@@ -211,7 +324,7 @@
 							} else {
 								y -= cos*speed;
 							}
-							
+
 							item.x = x;
 							item.y = y;
 							drawLine(x, y, width, item.color, item.alpha);
