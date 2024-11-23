@@ -52,6 +52,7 @@
 		}
 
 		body.black-theme .card {
+			position: relative;
 			min-width: 350px;
 			width: 20vw;
 			min-height: 530px;
@@ -59,9 +60,26 @@
 			height: calc(49vh);
 			box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
 			border-radius: 10px;
+			overflow: hidden;
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
+
+		body.black-theme .card::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
 			background: rgba(255, 255, 255, 0.05);
 			backdrop-filter: blur(10px);
-			overflow: hidden;
+			z-index: -1;
+			pointer-events: none;
+		}
+
+		body.black-theme .card:hover {
+			transform: scale(1.01);
+			box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
 		}
 
 		body.black-theme .card__top {
@@ -125,6 +143,7 @@
 		body.black-theme .card__content p a {
 			text-decoration: none;
 			color: #fff;
+			transition: color 0.3s ease, transform 0.3s ease;
 		}
 		
 		body.black-theme .social-icons {
@@ -134,13 +153,25 @@
 		body.black-theme .social-icons a {
 			margin: 0 10px;
 			text-decoration: none;
+			transition: color 0.3s ease, transform 0.3s ease;
 		}
 		
 		body.black-theme .social-icons svg {
 			width: 40px;
 			height: auto;
+			transition: fill 0.3s ease, transform 0.3s ease;
 		}
-
+		
+		body.black-theme .card__content p a:hover,
+		body.black-theme .social-icons a:hover {
+			color: #ffa500;
+			transform: scale(1.1);
+		}
+		
+		body.black-theme .social-icons a:hover svg {
+			fill: #00aced;
+			transform: scale(1.2);
+		}
 	</style>
 </head>
 <body class="black-theme">
